@@ -72,9 +72,6 @@ type Paginator struct {
 // 	}
 // 	fmt.Printf("<a href=\"/page/%s/\">&gt</a>", pg.RightPage.Number)
 func New(activePage, itemsCount, itemsOnPage, frameLength int) (*Paginator, error) {
-	if activePage*itemsOnPage > itemsCount {
-		return nil, fmt.Errorf("Wrong page number for paginate")
-	}
 	if frameLength < 2 {
 		return nil, fmt.Errorf("Paginated frame can't be less then 2")
 	}
