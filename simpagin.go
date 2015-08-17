@@ -96,7 +96,7 @@ func New(activePage, itemsCount, itemsOnPage, frameLength int) (*Paginator, erro
 		pg.LeftPage = &Page{(activePage - 1) * itemsOnPage, activePage - 1, false, LEFT, nil}
 		frameStartIndex = activePage - distanceToLeftSide
 	}
-	if pg.PagesCount > frameLength && activePage < (pg.PagesCount-(distanceToRightSide+1)) {
+	if pg.PagesCount > frameLength && activePage <= (pg.PagesCount-(distanceToRightSide+1)) {
 		pg.RightPage = &Page{(activePage + 1) * itemsOnPage, activePage + 1, false, RIGHT, nil}
 	}
 	pages := make([]*Page, min(frameLength, pg.PagesCount))
